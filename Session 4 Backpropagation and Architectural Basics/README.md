@@ -1,4 +1,4 @@
-# Part1: Simple Neural Network on Excel Sheet
+# Part1: Simple Neural Network in Excel Sheet
 
 ## Neural Network Diagram
 <img src="./images/1. Neural Network Diagram.JPG" />
@@ -38,6 +38,7 @@ Feedforward equations based on the diagram above.
 <img src="./images/5. Error vs Iterations.JPG" width="500"/>
 
 <img src="./images/6. Impact of Learinging rate.JPG" width="500"/>
+
 
 
 
