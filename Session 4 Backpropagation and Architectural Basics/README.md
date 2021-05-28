@@ -57,7 +57,7 @@ Feedforward equations based on the diagram above.
 9. Receptive field of 22x22 for 24x24 image; should have gone above if images had complexity of scenes and objects
 10. Learning Rate: Used One Cycle Policy for maximum achievement.
     - base lr: 0.001 | Max lr : 0.15
-    - Lr cycle, epoch wise;  [1 |4 | 19] : [0.01| 0.15 | 0.001]
+    - Lr cycle, epoch wise;  [1 |4 | 19] : [0.001| 0.15 | 0.001]
 
 ### Results:
 
