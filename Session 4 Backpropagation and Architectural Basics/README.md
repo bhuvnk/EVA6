@@ -65,8 +65,8 @@ Total Epochs : 19
 
 1. Parameters: **12968**
 2. Best Train Accuracy: 99.24
-3. Reached 99.41 at 12th Epoch
-4.  Best Test Accuracy: 99.53 (19th Epoch)
+3. Test accuracy reached 99.41 at 12th Epoch
+4. Best Test Accuracy: 99.53 (19th Epoch)
 
 
 
