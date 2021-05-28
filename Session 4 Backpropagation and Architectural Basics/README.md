@@ -42,7 +42,7 @@ Feedforward equations based on the diagram above.
 
 
 
-# Part 2 : 99.5% Test accuracy on MNIST with less than 13000 parameters.
+# Part 2 : 99.53% Test accuracy on MNIST with less than 13000 parameters.
 
 ### Few of the Architectural Considerations :
 
@@ -63,7 +63,7 @@ Feedforward equations based on the diagram above.
 
 Total Epochs : 19
 
-1. Parameters: 13.8k
+1. Parameters: **12968**
 2. Best Train Accuracy: 99.24
 3. Reached 99.41 at 12th Epoch
 4.  Best Test Accuracy: 99.53 (19th Epoch)
