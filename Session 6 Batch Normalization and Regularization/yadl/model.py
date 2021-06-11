@@ -8,7 +8,7 @@ class Net(nn.Module):
     def __init__(self, drop_value = 0.69, use_batchnorm=False, use_groupnorm=False, use_layernorm=False):
         super(Net, self).__init__()
 
-        self.self.drop_value = drop_value
+        self.drop_value = drop_value
         self.use_batchnorm = use_batchnorm
         self.use_groupnorm = use_groupnorm
         self.use_layernorm = use_layernorm
