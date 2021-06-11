@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 from yadl.data import get_dataloaders
 
-device = torch.device("cuda" if use_cuda else "cpu")
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 def plot_misclassified(data, title, r=5,c=4):
   fig, axs = plt.subplots(r,c,figsize=(15,10))
