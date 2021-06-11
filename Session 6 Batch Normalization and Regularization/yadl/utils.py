@@ -1,4 +1,7 @@
 # Plotting and stuff
+%matplotlib inline
+import matplotlib.pyplot as plt
+
 
 def plot_misclassified(data, title, r=5,c=4):
   fig, axs = plt.subplots(r,c,figsize=(15,10))
