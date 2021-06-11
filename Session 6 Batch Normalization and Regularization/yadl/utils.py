@@ -1,5 +1,5 @@
 # Plotting and stuff
-%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 
 
