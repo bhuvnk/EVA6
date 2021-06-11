@@ -10,7 +10,7 @@ def get_dataloaders(train_batch_size=None, val_batch_size=None, seed=42):
     test_ds = datasets.MNIST('./data', train=False, download=True, transform=test_transforms)
 
     cuda = torch.cuda.is_available()
-    print("CUDA Available?", cuda)
+#     print("CUDA Available?", cuda)
 
     torch.manual_seed(seed)
     if cuda:
