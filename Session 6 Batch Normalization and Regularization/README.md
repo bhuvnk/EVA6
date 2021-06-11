@@ -2,7 +2,7 @@
 
 Three normalization methods seen in Current SOTAs: Batch Normalization, Group Normalization, and Layer Normalization
 
-![All Norms](Session%206%20Batch%20Normalization%20and%20Regularization/imgs/0.%20AllNormalizations.JPG "All Norms")
+![All Norms](imgs/0.%20AllNormalizations.JPG "All Norms")
 
 While looking at the image above lets go throug these:
 
@@ -75,37 +75,37 @@ Params : `7_864`
 GroupNorm : group size = 2 
 
 #### Group Normalization Results
-![GroupNormResult](Session%206%20Batch%20Normalization%20and%20Regularization/imgs/1.%20GroupNormalizationResult.png "GroupNormResult")
+![GroupNormResult](imgs/1.%20GroupNormalizationResult.png "GroupNormResult")
 
 #### Group Normalization Misclassifications
-![GroupNormMis](Session%206%20Batch%20Normalization%20and%20Regularization/imgs/2.%20GroupNormalizationMis.png "GroupNormMis")
+![GroupNormMis](imgs/2.%20GroupNormalizationMis.png "GroupNormMis")
 
 
 ### Setup 2 : LayerNormalization
 LayerNorm : Default Settings
 
 #### LayerNormalization Results
-![LayerNormResult](Session%206%20Batch%20Normalization%20and%20Regularization/imgs/3.%20LayerNormalizationResult.png "LayerNormResult")
+![LayerNormResult](imgs/3.%20LayerNormalizationResult.png "LayerNormResult")
 
 #### Group Normalization Misclassifications
-![LayerNormMis](Session%206%20Batch%20Normalization%20and%20Regularization/imgs/4.%20LayerNormalizationMis.png "LayerNormMis")
+![LayerNormMis](imgs/4.%20LayerNormalizationMis.png "LayerNormMis")
 
 
 ### Setup 3 : BatchNormalization + l1
 BatchNorm + L1 : lambda of `0.0001`
 
 #### BatchNormalization Results
-![BatchNormaResult](Session%206%20Batch%20Normalization%20and%20Regularization/imgs/5.%20BatchNormalizationResult.png "BatchNormaResult")
+![BatchNormaResult](imgs/5.%20BatchNormalizationResult.png "BatchNormaResult")
 
 #### Group Normalization Misclassifications
-![BatchNormMis](Session%206%20Batch%20Normalization%20and%20Regularization/imgs/6.%20BatchNormalizationMis.png "BatchNormMis")
+![BatchNormMis](imgs/6.%20BatchNormalizationMis.png "BatchNormMis")
 LayerNorm : default values
 
 
 
 ### Results
 
-![GroupNorm, LayerNorm, BatchNorm+L1](Session%206%20Batch%20Normalization%20and%20Regularization/imgs/7.%20CombinedResults.png "BatchNorm+L1, GroupNorm, LayerNorm")
+![GroupNorm, LayerNorm, BatchNorm+L1](imgs/7.%20CombinedResults.png "BatchNorm+L1, GroupNorm, LayerNorm")
 
 
 ### Inference
