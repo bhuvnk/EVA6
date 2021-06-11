@@ -5,8 +5,10 @@ import torch.nn.functional as F
 
 
 class Net(nn.Module):
-    def __init__(self, use_batchnorm=False, use_groupnorm=False, use_layernorm=False):
+    def __init__(self, drop_value = 0.69, use_batchnorm=False, use_groupnorm=False, use_layernorm=False):
         super(Net, self).__init__()
+
+        self.self.drop_value = drop_value
         self.use_batchnorm = use_batchnorm
         self.use_groupnorm = use_groupnorm
         self.use_layernorm = use_layernorm
@@ -15,14 +17,14 @@ class Net(nn.Module):
         self.conv1 = nn.Sequential(
             nn.Conv2d(1, 8, 3, padding=1, bias=False),  # 28
             nn.ReLU(),
-            self._get_norm(8, 28, 28),
-            nn.Dropout2d(drop_value),
+            self._get_norm((8, 28, 28)),
+            nn.Dropout2d(self.drop_value),
             # RF - 3x3
 
             nn.Conv2d(8, 16, 3, padding=1, bias=False),  # 28
             nn.ReLU(),
-            self._get_norm(16, 28, 28),
-            nn.Dropout2d(drop_value),
+            self._get_norm((16, 28, 28)),
+            nn.Dropout2d(self.drop_value),
             # RF - 5x5
         )
 
@@ -43,26 +45,26 @@ class Net(nn.Module):
         self.conv2 = nn.Sequential(
             nn.Conv2d(8, 12, 3, bias=False),  # 12
             nn.ReLU(),
-            self._get_norm(12, 12, 12),
-            nn.Dropout2d(drop_value),
+            self._get_norm((12, 12, 12)),
+            nn.Dropout2d(self.drop_value),
             # RF - 16x16
 
             nn.Conv2d(12, 12, 3, bias=False),  # 10
             nn.ReLU(),
-            self._get_norm(12, 10, 10),
-            nn.Dropout2d(drop_value),
+            self._get_norm((12, 10, 10)),
+            nn.Dropout2d(self.drop_value),
             # RF - 18x18
 
             nn.Conv2d(12, 16, 3, bias=False),  # 8
             nn.ReLU(),
-            self._get_norm(16, 8, 8),
-            nn.Dropout2d(drop_value),
+            self._get_norm((16, 8, 8)),
+            nn.Dropout2d(self.drop_value),
             # RF - 20x20
 
             nn.Conv2d(16, 16, 3, bias=False),  # 4
             nn.ReLU(),
-            self._get_norm(16, 4, 4),
-            nn.Dropout2d(drop_value),
+            self._get_norm((16, 4, 4)),
+            nn.Dropout2d(self.drop_value),
             # RF - 22x22
         )
 
