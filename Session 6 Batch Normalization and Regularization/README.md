@@ -108,7 +108,7 @@ LayerNorm : default values
 ![GroupNorm, LayerNorm, BatchNorm+L1](imgs/7.%20CombinedResults.png "BatchNorm+L1, GroupNorm, LayerNorm")
 
 
-### Inference
+### Interpretations
 
 1. LayerNorm was most stable while training, than rest two.
 2. Adding L1 as regularization with Batch Norm makes the training very jumpy and unstable, specially with high Lambda. But low lambda gave better results.
