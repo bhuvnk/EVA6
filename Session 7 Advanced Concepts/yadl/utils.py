@@ -1,4 +1,5 @@
 # Plotting and stuff
+from yadl.data import get_dataloaders
 
 import matplotlib.pyplot as plt
 
