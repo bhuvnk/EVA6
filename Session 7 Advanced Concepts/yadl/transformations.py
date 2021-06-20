@@ -5,7 +5,7 @@ from albumentations.pytorch import ToTensorV2
 def get_train_test_transforms():
     train_transforms = A.Compose(
       [
-        A.HorizontalFlip(p=0.5),
+        A.HorizontalFlip(),
         A.ShiftScaleRotate(shift_limit=0.05, scale_limit=0.05, rotate_limit=15, p=0.5),
         A.CoarseDropout(max_holes = 1,
                        max_height= 16,
@@ -14,7 +14,7 @@ def get_train_test_transforms():
                        min_height= 16,
                        min_width= 16),
         A.Normalize(mean=(0.4914, 0.4822, 0.4465), std=(0.247, 0.243, 0.261)),
-        A.ToGray(),
+        A.ToGray(0.1),
         ToTensorV2(),
       ])
 
