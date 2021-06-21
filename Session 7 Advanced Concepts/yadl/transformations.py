@@ -8,7 +8,7 @@ def get_train_test_transforms():
             A.Normalize((0.49139968, 0.48215841, 0.44653091), (0.24703223, 0.24348513, 0.26158784)),
             A.HorizontalFlip(),
             A.ShiftScaleRotate(),
-            A.CoarseDropout(1, 16, 16, 1, 16, 16,fill_value=0.473363, mask_fill_value=None),
+            A.CoarseDropout(1, 16, 16, 1, 16, 16,fill_value=0.473363),
             A.ToGray()
 #             ToTensorV2(),
         ])
