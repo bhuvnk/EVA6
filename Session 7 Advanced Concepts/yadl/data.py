@@ -1,6 +1,6 @@
 import torchvision
 import torch
-
+import numpy as np
 from .transformations import get_train_test_transforms
 
 class Cifar10Dataset(torchvision.datasets.CIFAR10):
@@ -11,10 +11,10 @@ class Cifar10Dataset(torchvision.datasets.CIFAR10):
         image, label = self.data[index], self.targets[index]
 
         if self.transform is not None:
-            transformed = self.transform(image=image)
+            transformed = self.transform(image=np.array(image))
             image = transformed["image"]
-
-        return image, label
+        image = np.transpose(image, (2, 0, 1)).astype(np.float32)
+        return torch.tensor(image, dtype=torch.float), label
 
 def get_dataloaders(train_batch_size=128, val_batch_size=128, seed=42):
     train_transforms, test_transforms = get_train_test_transforms()
