@@ -13,8 +13,10 @@ def get_train_test_transforms():
                        min_holes = 1,
                        min_height= 16,
                        min_width= 16),
+          
+        A.ToGray(0.1),
+          
         A.Normalize(mean=(0.4914, 0.4822, 0.4465), std=(0.247, 0.243, 0.261)),
-#         A.ToGray(0.1),
         ToTensorV2(),
       ])
 
