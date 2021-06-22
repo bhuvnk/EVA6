@@ -4,8 +4,9 @@ import numpy as np
 from .transformations import get_train_test_transforms
 
 class Cifar10Dataset(torchvision.datasets.CIFAR10):
-    def __init__(self, root="./data", train=True, download=True, transform=None):
+    def __init__(self, root="./data", train=True, download=True, transform=None, viz=False):
         super().__init__(root=root, train=train, download=download, transform=transform)
+        self.viz = viz
 
     def __getitem__(self, index):
         image, label = self.data[index], self.targets[index]
@@ -13,8 +14,11 @@ class Cifar10Dataset(torchvision.datasets.CIFAR10):
         if self.transform is not None:
             transformed = self.transform(image=np.array(image))
             image = transformed["image"]
-        image = np.transpose(image, (2, 0, 1)).astype(np.float32)
-        return torch.tensor(image, dtype=torch.float), label
+            if self.viz:
+              return image, label
+            image = np.transpose(image, (2, 0, 1)).astype(np.float32)
+            image = torch.tensor(image, dtype=torch.float)
+        return image, label
 
 def get_dataloaders(train_batch_size=128, val_batch_size=128, seed=42):
     train_transforms, test_transforms = get_train_test_transforms()
