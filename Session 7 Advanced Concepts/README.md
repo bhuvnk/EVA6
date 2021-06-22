@@ -26,7 +26,7 @@ Working with Cifar-10 dataset
 
 **After Augmentation and normalization**
 
-![transformed](/imgs/transformed.png "transformed")
+![transformed](imgs/transformed.png "transformed")
 
 
 ## Model Summary
