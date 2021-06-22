@@ -1,25 +1,27 @@
 # Plotting and stuff
 from yadl.data import get_dataloaders
-
+import torch
 import matplotlib.pyplot as plt
 
-def plot_misclassified(data, title, r=5,c=4):
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+def plot_misclassified(data, title, classes, r=5,c=4):
   fig, axs = plt.subplots(r,c,figsize=(15,10))
   fig.tight_layout()
 
   for i in range(r):
     for j in range(c):
       axs[i][j].axis('off')
-      axs[i][j].set_title(f"Target: {str(data[(i*c)+j]['target'])}\nPred: {str(data[(i*c)+j]['pred'])}")
+      axs[i][j].set_title(f"Target: {classes[int(data[(i*c)+j]['target'])]}\nPred: {classes[int(data[(i*c)+j]['pred'])]}")
       axs[i][j].imshow(data[(i*c)+j]['data'])
 
-def inverse_normalize(tensor, mean=(0.1307,), std=(0.3081,)):
+def inverse_normalize(tensor, mean=(0.49139968, 0.48215841, 0.44653091), std=(0.24703223, 0.24348513, 0.26158784)):
   # Not mul by 255 here
   for t, m, s in zip(tensor, mean, std):
       t.mul_(s).add_(m)
   return tensor
 
-def get_misclassified(model, title, n=20,r=5,c=4):
+def get_misclassified(model, title, classes, n=20,r=5,c=4):
   model.eval()
   _, test_loader = get_dataloaders(val_batch_size=1)
   wrong = []
@@ -31,12 +33,12 @@ def get_misclassified(model, title, n=20,r=5,c=4):
         correct = pred.eq(target.view_as(pred)).item()
         if not correct:
           wrong.append({
-              "data": inverse_normalize(data).squeeze().cpu(),
+              "data": inverse_normalize(data).squeeze().cpu().permute(1,2,0),
               "target": target.item(),
               "pred": pred.item()
           })
   
-  plot_misclassified(wrong[:n], title, r, c)
+  plot_misclassified(wrong[:n], title, classes, r, c)
 
 # Plotting graphs
 def plot_single(title, train_losses, train_acc, test_losses, test_acc):
