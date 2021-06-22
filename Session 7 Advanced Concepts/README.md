@@ -9,10 +9,10 @@
     - 1 Dialeted Kernel
 
 2. Augmentations, using `Albumentations`
-    a. horizontal flip
-    b. shiftScaleRotate
-    c. CoarseDropout (1,16,16,1,16,16, fill_value=(mean of data))
-    d. grayscaleHorizontal Flip 
+    - horizontal flip
+    - shiftScaleRotate
+    - CoarseDropout (1,16,16,1,16,16, fill_value=(mean of data))
+    - grayscaleHorizontal Flip 
 
 3. **`68,992 parameters; 87% validation accuracy`**
 
